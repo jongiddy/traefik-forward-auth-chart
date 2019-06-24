@@ -24,6 +24,10 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
+            {{- if .Values.traefikForwardAuth.oidcIssuer }}
+            - name: OIDC_ISSUER
+              value: {{ .Values.traefikForwardAuth.oidcIssuer | quote }}
+            {{- end }}
             - name: CLIENT_ID
               valueFrom:
                 secretKeyRef:

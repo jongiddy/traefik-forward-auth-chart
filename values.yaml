@@ -25,13 +25,16 @@ traefikForwardAuth:
   domain:
   authHost:
   whitelist: []
+  # oidcIssuer is only required for the fork of traefik-forward-auth at
+  # https://github.com/noelcatt/traefik-forward-auth (and its forks)
+  # oidcIssuer:
 
 ingress:
   enabled: false
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
-  paths: 
+  paths:
     - /
   hosts:
     - chart-example.local
