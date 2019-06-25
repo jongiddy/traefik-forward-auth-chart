@@ -28,6 +28,9 @@ traefikForwardAuth:
   # oidcIssuer is only required for the fork of traefik-forward-auth at
   # https://github.com/noelcatt/traefik-forward-auth (and its forks)
   # oidcIssuer:
+  # caCertificate is only required if the OIDC Provider certificate is signed
+  # by a CA that is not in the system CA list.
+  # caCertificate:
 
 ingress:
   enabled: false
