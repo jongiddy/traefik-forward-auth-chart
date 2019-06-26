@@ -22,9 +22,9 @@ spec:
       volumes:
       - name: etc-traefik-forward-auth
         secret:
-          secretName: {{ template "traefik-forward-auth.fullname" . }}
+          secretName: dex-k8s-authenticator-kubeaddons-dex-root-ca
           items:
-          - key: caCertificate
+          - key: dex-root-ca
             path: ca.crt
       containers:
         - name: {{ .Chart.Name }}
