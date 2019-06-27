@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+data:
+  config: |
+    rule.path.action = allow
+    rule.path.rule = Path(`/`, `/ops/portal`)
+    rule.prefix.action = allow
+    rule.prefix.rule = PathPrefix(`/dex/`, `/dex-k8s-authenticator`)
