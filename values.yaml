@@ -18,7 +18,6 @@ service:
 
 traefikForwardAuth:
   clientId:
-  clientSecret:
   secret: ""
   # https only?
   cookieSecure: false

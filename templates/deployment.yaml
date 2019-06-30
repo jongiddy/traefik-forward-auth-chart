@@ -62,8 +62,8 @@ spec:
             - name: CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: {{ template "traefik-forward-auth.fullname" . }}
-                  key: clientSecret
+                  name: dex-client-secret-traefik-forward-auth
+                  key: client_secret
             - name: SECRET
               valueFrom:
                 secretKeyRef:
