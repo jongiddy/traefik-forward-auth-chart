@@ -76,10 +76,14 @@ spec:
                   key: username
             - name: COOKIE_SECURE
               value: {{ .Values.traefikForwardAuth.cookieSecure | quote }}
+            {{- if .Values.traefikForwardAuth.domain }}
             - name: DOMAIN
-              value: {{ required ".Values.traefikForwardAuth.domain is required" .Values.traefikForwardAuth.domain | quote }}
+              value: {{ .Values.traefikForwardAuth.domain | quote }}
+            {{- end }}
+            {{- if .Values.traefikForwardAuth.authHost }}
             - name: AUTH_HOST
-              value: {{ required ".Values.traefikForwardAuth.authHost is required" .Values.traefikForwardAuth.authHost | quote }}
+              value: {{ .Values.traefikForwardAuth.authHost | quote }}
+            {{- end }}
           ports:
             - name: http
               containerPort: 4181
