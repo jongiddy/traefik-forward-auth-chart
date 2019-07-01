@@ -5,6 +5,6 @@ metadata:
 data:
   config: |
     rule.path.action = allow
-    rule.path.rule = Path(`/`, `/ops/portal`, `/favicon.ico`)
+    rule.path.rule = Path(`/favicon.ico`)
     rule.prefix.action = allow
     rule.prefix.rule = PathPrefix(`/dex/`, `/dex-k8s-authenticator`)
