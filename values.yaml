@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: thomseddon/traefik-forward-auth
+  repository: jongiddy/traefik-forward-auth
   tag: latest
   pullPolicy: Always
 
@@ -30,6 +30,11 @@ traefikForwardAuth:
   # caCertificate is only required if the OIDC Provider certificate is signed
   # by a CA that is not in the system CA list.
   # caCertificate:
+  extraConfig: |
+    rule.path.action = allow
+    rule.path.rule = Path(`/favicon.ico`)
+    rule.prefix.action = allow
+    rule.prefix.rule = PathPrefix(`/dex/`, `/dex-k8s-authenticator`)
 
 ingress:
   enabled: false

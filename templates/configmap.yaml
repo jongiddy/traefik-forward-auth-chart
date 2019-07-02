@@ -4,7 +4,4 @@ metadata:
   name: {{ .Release.Name }}-configmap
 data:
   config: |
-    rule.path.action = allow
-    rule.path.rule = Path(`/favicon.ico`)
-    rule.prefix.action = allow
-    rule.prefix.rule = PathPrefix(`/dex/`, `/dex-k8s-authenticator`)
+    {{ .Values.traefikForwardAuth.extraConfig | nindent 4 }}
