@@ -4,4 +4,5 @@ metadata:
   name: {{ .Release.Name }}-configmap
 data:
   config: |
+    client-id = {{ required "traefikForwardAuth.clientId is required" .Values.traefikForwardAuth.clientId }}
     {{ .Values.traefikForwardAuth.extraConfig | nindent 4 }}

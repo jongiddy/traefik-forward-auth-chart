@@ -50,15 +50,10 @@ spec:
               value: "/etc/traefik-forward-auth/secret/ca.crt"
             - name: LOG_LEVEL
               value: "trace"
-            {{- if .Values.traefikForwardAuth.oidcIssuer }}
+            {{- if .Values.traefikForwardAuth.oidcUri }}
             - name: PROVIDER_URI
-              value: {{ .Values.traefikForwardAuth.oidcIssuer | quote }}
+              value: {{ .Values.traefikForwardAuth.oidcUri | quote }}
             {{- end }}
-            - name: CLIENT_ID
-              valueFrom:
-                secretKeyRef:
-                  name: {{ template "traefik-forward-auth.fullname" . }}
-                  key: clientId
             - name: CLIENT_SECRET
               valueFrom:
                 secretKeyRef:

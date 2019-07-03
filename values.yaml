@@ -18,15 +18,18 @@ service:
 
 traefikForwardAuth:
   clientId:
-  secret: ""
+  clientSecret:
+    value: "replace-me"
+  secret:
+    value: "replace-me"
   # https only?
   cookieSecure: false
   domain:
   authHost:
   whitelist: []
-  # oidcIssuer is only required for the fork of traefik-forward-auth at
+  # oidcUri is only required for the fork of traefik-forward-auth at
   # https://github.com/noelcatt/traefik-forward-auth (and its forks)
-  # oidcIssuer:
+  # oidcUri:
   # caCertificate is only required if the OIDC Provider certificate is signed
   # by a CA that is not in the system CA list.
   # caCertificate:
