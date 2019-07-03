@@ -19,9 +19,9 @@ service:
 traefikForwardAuth:
   clientId:
   clientSecret:
-    value: "replace-me"
+    value: "do-not-use"
   secret:
-    value: "replace-me"
+    value: "do-not-use"
   # https only?
   cookieSecure: false
   domain:

@@ -54,11 +54,19 @@ spec:
             - name: PROVIDER_URI
               value: {{ .Values.traefikForwardAuth.oidcUri | quote }}
             {{- end }}
+            {{- if .Values.traefikForwardAuth.clientSecret.valueFrom.secretKeyRef }}
             - name: CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: dex-client-secret-traefik-forward-auth
-                  key: client_secret
+                  name: {{ required "traefikForwardAuth.clientSecret.valueFrom.secretKeyRef.name is required" .Values.traefikForwardAuth.clientSecret.valueFrom.secretKeyRef.name }}
+                  key: {{ required "traefikForwardAuth.clientSecret.valueFrom.secretKeyRef.key is required" .Values.traefikForwardAuth.clientSecret.valueFrom.secretKeyRef.key }}
+            {{- else }}
+            - name: CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ template "traefik-forward-auth.fullname" . }}
+                  key: clientSecret
+            {{- end }}
             - name: SECRET
               valueFrom:
                 secretKeyRef:
