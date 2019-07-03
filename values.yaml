@@ -20,8 +20,7 @@ traefikForwardAuth:
   clientId:
   clientSecret:
     value: "do-not-use"
-  secret:
-    value: "do-not-use"
+  secret: "do-not-use"
   # https only?
   cookieSecure: false
   domain:
