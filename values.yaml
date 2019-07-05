@@ -33,6 +33,7 @@ traefikForwardAuth:
   # by a CA that is not in the system CA list.
   # caCertificate:
   extraConfig: ""
+  userCookieName: "_forward_auth_name"
 
 ingress:
   enabled: false

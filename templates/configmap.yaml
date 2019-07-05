@@ -5,4 +5,5 @@ metadata:
 data:
   config: |
     client-id = {{ required "traefikForwardAuth.clientId is required" .Values.traefikForwardAuth.clientId }}
+    user-cookie-name = {{ required "traefikForwardAuth.userCookieName is required" .Values.traefikForwardAuth.userCookieName }}
     {{ .Values.traefikForwardAuth.extraConfig | nindent 4 }}
