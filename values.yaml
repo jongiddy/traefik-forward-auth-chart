@@ -27,6 +27,11 @@ traefikForwardAuth:
   authHost:
   whitelist: []
   # oidcUri: ""
+  # caCertificate:
+  #   valueFrom:
+  #     secretKeyRef:
+  #       name: secretName
+  #       key: secretKey
   extraConfig: ""
   userCookieName: "_forward_auth_name"
 
